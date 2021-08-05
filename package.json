@@ -29,8 +29,8 @@
     "start": "run-p build watch",
     "build": "run-s clean sass sassmin postcss copy",
     "clean": "rimraf dist",
-    "sass": "node-sass --output-style expanded sass/three-dots.scss dist/three-dots.css",
-    "sassmin": "node-sass --output-style compressed sass/three-dots.scss dist/three-dots.min.css",
+    "sass": "sass --style=expanded sass/three-dots.scss dist/three-dots.css",
+    "sassmin": "sass --style=compressed sass/three-dots.scss dist/three-dots.min.css",
     "copy": "cpy dist/*.css !dist/*.min.css docs/css",
     "postcss": "postcss -r dist/*.css --map",
     "watch": "onchange sass -- run-s sass copy",
@@ -56,6 +56,7 @@
     "node": ">=4"
   },
   "dependencies": {
-    "bootstrap": "^5.1.0"
+    "bootstrap": "^5.1.0",
+    "sass": "^1.37.5"
   }
 }
